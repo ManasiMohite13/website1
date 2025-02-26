@@ -16,6 +16,44 @@ html {
     color: wheat;
 }
 
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background: #222;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+
+    ul {
+        display: flex;
+        gap: 2rem;
+        /* Space between links */
+        list-style: none;
+        /* Remove default bullets */
+        padding: 0;
+        margin: 0;
+
+        li {
+            a {
+                color: wheat;
+                text-decoration: none;
+                font-size: 1.2rem;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: rgba(220, 170, 76, 0.623);
+                }
+            }
+        }
+    }
+}
+
 main {
     width: 100%;
 }
@@ -64,14 +102,24 @@ main {
         overflow: hidden;
         position: relative;
 
+        &::before,
         &::after {
             content: "";
             height: 100%;
-            width: 50%;
+            width: 30%;
             position: absolute;
             top: 0;
+            z-index: 2;
+        }
+
+        &::before {
             left: 0;
-            background-image: linear-gradient(to right, #0e0e0e, transparent);
+            background: linear-gradient(to right, #0e0e0e, transparent);
+        }
+
+        &::after {
+            right: 0;
+            background: linear-gradient(to left, #0e0e0e, transparent);
         }
 
         .text {
@@ -89,12 +137,56 @@ main {
     }
 }
 
+.section_3 {
+    background-color: #1a1a1a;
+    color: wheat;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.section_3 h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.services-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+
+}
+
+.service-card {
+    background: #222;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
 @keyframes marquee {
-    0% {
+    from {
         transform: translateX(0);
     }
 
-    100% {
+    to {
         transform: translateX(-100%);
     }
 }
@@ -128,6 +220,28 @@ main {
         .marquee {
             width: 50%;
         }
+    }
+
+    .section_3 {
+        h2 {
+            font-size: 3.5rem;
+        }
+
+        .services-container {
+            flex-direction: row;
+            align-items: stretch;
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 250px;
+
+        }
+
+
     }
 
 
