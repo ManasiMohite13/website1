@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>website_1</title>
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 </head>
+
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <main>
         <section id="home" class="section_1">
-            <img src="https://images.unsplash.com/photo-1514687956372-5ad2aadd9898?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            <img src="https://images.unsplash.com/photo-1514687956372-5ad2aadd9898?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="">
             <h1>
                 Full Stack
                 <br>
                 <i>Developer</i>
             </h1>
             <p>
-                Crafting visually stunning and highly functional websites <br> that bring your ideas to life!    </p>
+                Crafting visually stunning and highly functional websites <br> that bring your ideas to life! </p>
         </section>
 
         <section id="about" class="section_2">
-            <div class="marquee">
-                <div class="text">
-                    <p>Lorem</p>
-                    <p>ipsum</p>
-                    <p>dolor</p>
-                    <p>sit</p>
-                    <p>consectetur</p>
-                    <p>amet</p>
+            <div class="about-container">
+                <div class="about-info">
+                    <h2>About Me</h2>
+                    <p>
+                        Passionate Full-Stack Developer with expertise in front-end and back-end technologies.
+                        I love crafting seamless web experiences and solving complex problems through code.
+                    </p>
                 </div>
-                <div class="text">
-                    <p>Lorem</p>
-                    <p>ipsum</p>
-                    <p>dolor</p>
-                    <p>sit</p>
-                    <p>consectetur</p>
-                    <p>amet</p>
+                <div class="marquee">
+                    <div class="text">
+                        <p>Innovate</p>
+                        <p>Create</p>
+                        <p>Develop</p>
+                        <p>Deploy</p>
+                        <p>Scale</p>
+                        <p>Design</p>
+                    </div>
+                    <div class="text">
+                        <p>Passion</p>
+                        <p>Vision</p>
+                        <p>Growth</p>
+                        <p>Build</p>
+                        <p>Deploy</p>
+                        <p>Create</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -75,8 +81,23 @@
                     <h3>Full-Stack Development</h3>
                     <p>Developing complete web applications from front to back.</p>
                 </div>
-                
+
             </div>
+        </section>
+
+        <section id="contact" class="section_4">
+            <h2>Get in touch</h2>
+            <div class="contact-info">
+                <a href="#">abc@email.com</a>
+                <a href="#">+123 456 789</a>
+            </div>
+
+            <div class="social-links">
+                <a href="" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+
         </section>
 
     </main>
@@ -84,29 +105,30 @@
     <script>
         // Fade-in and Slide-up Effect for Service Cards
         gsap.from(".service-card", {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          stagger: 0.2, // Each card animates one after another
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".section_3",
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          clearProps: "all" 
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.2, // Each card animates one after another
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".section_3",
+                start: "top 80%",
+                toggleActions: "play none none reverse",
+            },
+            clearProps: "all"
         });
-      
+
         // Hover Effect on Service Cards
         document.querySelectorAll(".service-card").forEach((card) => {
-          card.addEventListener("mouseenter", () => {
-            gsap.to(card, { scale: 1.05, boxShadow: "0px 4px 15px rgba(255, 215, 0, 0.5)", duration: 0.3 });
-          });
-          card.addEventListener("mouseleave", () => {
-            gsap.to(card, { scale: 1, boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", duration: 0.3 });
-          });
+            card.addEventListener("mouseenter", () => {
+                gsap.to(card, { scale: 1.05, boxShadow: "0px 4px 15px rgba(255, 215, 0, 0.5)", duration: 0.3 });
+            });
+            card.addEventListener("mouseleave", () => {
+                gsap.to(card, { scale: 1, boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", duration: 0.3 });
+            });
         });
-      </script>
-      
+    </script>
+
 </body>
+
 </html>

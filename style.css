@@ -20,7 +20,7 @@ nav {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  background: #222;
+  background: rgba(34, 34, 34, 0.8);
   padding: 1rem 0;
   position: fixed;
   width: 100%;
@@ -28,6 +28,13 @@ nav {
   left: 0;
   z-index: 100;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  /* Blurred background effect */
+  animation: slideIn 0.8s ease-in-out;
+  /* Animation on page load */
+  animation-fill-mode: forwards;
+  /* Ensures final state stays */
 }
 nav ul {
   display: flex;
@@ -43,33 +50,31 @@ nav ul li a {
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.3s ease;
+  display: inline-block;
 }
 nav ul li a:hover {
   color: rgba(220, 170, 76, 0.623);
+  transform: scale(1.1);
 }
 
-main {
-  width: 100%;
-}
-
-.section_1 {
+main .section_1 {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem 4rem;
 }
-.section_1 img {
+main .section_1 img {
   width: 80%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.section_1 h1 {
+main .section_1 h1 {
   font-size: 3.5rem;
   text-align: center;
   font-weight: 100;
 }
-.section_1 p {
+main .section_1 p {
   text-align: center;
   font-weight: 100;
   font-size: 1.2rem;
@@ -77,23 +82,36 @@ main {
   margin: 0.9rem 0;
   opacity: 0.6;
 }
-.section_1 p br {
+main .section_1 p br {
   display: none;
 }
-
-.section_2 {
+main .section_2 {
   width: 100%;
   padding: 4rem 3rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
-.section_2 .marquee {
+main .section_2 .about-container .about-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  text-align: center;
+}
+main .section_2 .about-container .about-info p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+main .section_2 .about-container .marquee {
   display: flex;
   width: 100%;
   overflow: hidden;
   position: relative;
 }
-.section_2 .marquee::before, .section_2 .marquee::after {
+main .section_2 .about-container .marquee::before, main .section_2 .about-container .marquee::after {
   content: "";
   height: 100%;
   width: 30%;
@@ -101,45 +119,46 @@ main {
   top: 0;
   z-index: 2;
 }
-.section_2 .marquee::before {
+main .section_2 .about-container .marquee::before {
   left: 0;
   background: linear-gradient(to right, #0e0e0e, transparent);
 }
-.section_2 .marquee::after {
+main .section_2 .about-container .marquee::after {
   right: 0;
   background: linear-gradient(to left, #0e0e0e, transparent);
 }
-.section_2 .marquee .text {
+main .section_2 .about-container .marquee .text {
   display: flex;
   gap: 3rem;
   padding: 0 1.5rem;
-  animation: marquee 10s linear infinite both;
+  animation: marquee 6s linear infinite both;
 }
-.section_2 .marquee .text p {
+main .section_2 .about-container .marquee .text p {
   font-size: 2rem;
   font-weight: 300;
 }
-
-.section_3 {
+main .section_3 {
   background-color: #1a1a1a;
   color: wheat;
-  padding: 4rem 2rem;
+  padding: 1.5rem 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
-
-.section_3 h2 {
+main .section_3 h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
+  font-weight: 400;
 }
-
-.services-container {
+main .section_3 .services-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5rem;
+  padding-top: 1.5rem;
+  gap: 2rem;
 }
-
-.service-card {
+main .section_3 .services-container .service-card {
   background: #222;
   padding: 2rem;
   border-radius: 10px;
@@ -148,19 +167,61 @@ main {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
 }
-
-.service-card:hover {
+main .section_3 .services-container .service-card:hover {
   transform: scale(1.05);
 }
-
-.service-card h3 {
+main .section_3 .services-container .service-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-
-.service-card p {
+main .section_3 .services-container .service-card p {
   font-size: 1rem;
   opacity: 0.7;
+}
+main .section_4 {
+  background-color: #1a1a1a;
+  color: wheat;
+  text-align: center;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+main .section_4 h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+main .section_4 .contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+main .section_4 .contact-info a {
+  color: wheat;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out;
+}
+main .section_4 .contact-info a:hover {
+  color: rgba(220, 170, 76, 0.8);
+}
+main .section_4 .social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+main .section_4 .social-links a {
+  font-size: 1.8rem;
+  color: wheat;
+  transition: transform 0.2s ease-in-out;
+}
+main .section_4 .social-links a:hover {
+  transform: scale(1.1);
+  color: rgba(220, 170, 76, 0.8);
 }
 
 @keyframes marquee {
@@ -168,40 +229,62 @@ main {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
-@media (min-Width: 1020px) {
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media (min-width: 1020px) {
   html {
     font-size: clamp(16px, 1vw, 20px);
   }
-  .section_1 img {
+  nav {
+    background: rgba(20, 20, 20, 0.9);
+  }
+  main .section_1 img {
     width: 28%;
   }
-  .section_1 h1 {
+  main .section_1 h1 {
     font-size: 5.1rem;
   }
-  .section_1 p {
+  main .section_1 p {
     font-size: 1.5rem;
   }
-  .section_1 p br {
+  main .section_1 p br {
     display: block;
   }
-  .section_2 .marquee {
-    width: 50%;
+  main .section_2 .about-container .about-info .marquee {
+    width: 70%;
   }
-  .section_3 h2 {
+  main .section_3 h2 {
     font-size: 3.5rem;
   }
-  .section_3 .services-container {
+  main .section_3 .services-container {
     flex-direction: row;
     align-items: stretch;
-    gap: 2.5rem;
+    gap: 2.8rem;
   }
-  .section_3 .service-card {
+  main .section_3 .service-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 250px;
+  }
+  main .section_4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  main .section_4 .contact-info {
+    flex-direction: row;
+    gap: 2.5rem;
   }
 }/*# sourceMappingURL=style.css.map */
